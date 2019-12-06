@@ -14,7 +14,8 @@ parking_time time
 create table inventory(
 inventoryID int primary key,
 carType varchar(50),
-carAvailability enum('Yes','No')
+carAvailability enum('Yes','No'),
+rentalCost decimal(10,2)
 );
 
 create table orders(
