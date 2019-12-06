@@ -2,7 +2,7 @@
 create table inventory(
 inventoryID int primary key,
 carType varchar(100),
-carAvailability time
+carAvailability enum('yes', 'no')
 );
 
 create table orders (
