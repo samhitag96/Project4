@@ -1,0 +1,86 @@
+
+create table orders (
+orderID int primary key,
+paymentType varchar(50),
+rent_time time,
+cost decimal(10,2)
+);
+
+create table inventory(
+inventoryID int primary key,
+carType varchar(100),
+carAvailability time,
+order_id int,
+foreign key(order_id) references orders(orderID)
+);
+
+create table customers(
+custID int primary key,
+name char(100),
+username varchar(50),
+password varchar(50),
+custType enum('VIP', 'Regular'),
+order_id int,
+inventory_id int,
+foreign key (order_id) references orders(orderID),
+foreign key (inventory_id) references inventory(inventoryID)
+);
+
+
+
+insert into orders value(110, 'CreditCard', '5:00:00', '10.00');
+insert into orders value(111, 'DebitCard', '12:30:00', '15.00');
+insert into orders value(112, 'PayPal', '11:45:00', '25.00');
+insert into orders value(113, 'CreditCard', '1:25:00', '10.00');
+insert into orders value(114, 'CreditCard', '6:30:00', '15.00');
+insert into orders value(115, 'Venmo', '09:15:00', '20.00');
+insert into orders value(116, 'CreditCard', '7:15:00', '10.00');
+
+insert into inventory value(10, 'SVU', '8:00:00',110);
+insert into inventory value(11, 'SVU', '8:30:00',111);
+insert into inventory value(12, 'SVU', '9:00:00',112);
+insert into inventory value(13, 'SVU', '9:30:00',113);
+insert into inventory value(14, 'SVU', '10:00:00',114);
+insert into inventory value(15, 'SVU', '10:30:00',115);
+insert into inventory value(16, 'SVU', '11:00:00',116);
+
+insert into inventory value(17, 'Compact', '11:30:00',110);
+insert into inventory value(18, 'Compact', '12:00:00',111);
+insert into inventory value(19, 'Compact', '12:30:00',112);
+insert into inventory value(20, 'Compact', '01:00:00',113);
+insert into inventory value(21, 'Compact', '01:30:00',114);
+insert into inventory value(22, 'Compact', '02:00:00',115);
+insert into inventory value(23, 'Compact', '02:30:00',116);
+
+insert into inventory value(24, 'Midsize', '01:00:00',110);
+insert into inventory value(25, 'Midsize', '01:30:00',111);
+insert into inventory value(26, 'Midsize', '02:00:00',112);
+insert into inventory value(27, 'Midsize', '02:30:00',113);
+insert into inventory value(28, 'Midsize', '03:00:00',114);
+insert into inventory value(29, 'Midsize', '03:30:00',115);
+insert into inventory value(30, 'Midsize', '4:00:00',116);
+
+insert into inventory value(31, 'Luxury', '11:15:00',110);
+insert into inventory value(32, 'Luxury', '12:45:00',111);
+insert into inventory value(33, 'Luxury', '01:15:00',112);
+insert into inventory value(34, 'Luxury', '01:45:00',113);
+insert into inventory value(35, 'Luxury', '02:10:00',114);
+insert into inventory value(36, 'Luxury', '02:50:00',115);
+insert into inventory value(37, 'Luxury', '03:45:00',116);
+
+insert into customers value(1, 'John Smith', 'JSmith23', 'fuhfhuf122', 'Regular', 112, 17);
+insert into customers value(2, 'Ken Washington', 'fuzzybear101', 'jijfrififq1998', 'Regular', 116, 33);
+insert into customers value(3, 'Kendra Harrison', 'Kendra4prez', 'orangecookies2292883', 'VIP', 111, 27);
+insert into customers value(4, 'Chander Harold', 'Candyluver23', 'fjeofjeijfie34', 'VIP', 113, 37);
+insert into customers value(5, 'Laura Henderson', 'Lhenderson564', 'ilovedogs2019', 'Regular', 112, 21);
+insert into customers value(6, 'Trevor Scott', 'CatLuver362', 'treesarenice22409', 'VIP', 112, 15);
+insert into customers value(7, 'Diamond Sky', 'RentMeACar1987', 'ilovecars22', 'Regular', 115, 11);
+insert into customers value(8, 'Raven Lee', 'password', 'rjfijfiefje', 'Regular', 114, 24);
+insert into customers value(9, 'Raj Kappur', 'RKappur5588', 'rajluvscars9383492842', 'VIP', 112, 29);
+insert into customers value(10, 'Albert Rodriguez', 'ARod1998', 'ifefrufhehu887', 'VIP', 111, 32);
+insert into customers value(11, 'Jennier Lawrence', 'CarFan101', 'buymeacae446655', 'Regular', 113, 12);
+insert into customers value(12, 'Sam Wheeler', 'Wheeler1977', 'cndacjhbdchch87', 'VIP', 111, 21);
+insert into customers value(13, 'Lawrence Smith', 'LSmith67', 'iiwefjkcdnklfjoilfji1998', 'Regular', 116, 26);
+insert into customers value(14, 'Ben Flack', 'BatmanLuver90', 'Robinismyfriend5643', 'Regular', 112, 19);
+insert into customers value(15, 'Elaina Clarkson', 'EClark23', 'yoyo1234', 'Regular', 110, 23);
+insert into customers value(16,'Harry Edward', 'SweetNSourChicken77', 'onetwothree123', 'Regular', 114, 30);
