@@ -1,27 +1,30 @@
-
-create table inventory(
-inventoryID int primary key,
-carType varchar(100),
-carAvailability enum('yes', 'no')
-);
-
-create table orders (
-orderID int primary key,
-paymentType varchar(50),
-rent_time time,
-cost decimal(10,2),
-inventory_id int,
-foreign key(inventory_id) references inventory(inventoryID)
-);
-
-create table customers(
+create table customer(
 custID int primary key,
 name char(100),
 username varchar(50),
-password varchar(50),
-custType enum('VIP', 'Regular'),
-order_id int,
+password varchar(50)
+);
+
+create table parking(
+parkingID int primary key,
+parkingType enum('VIP', 'Regular'),
+parking_time time
+);
+
+create table inventory(
+inventoryID int primary key,
+carType varchar(50),
+carAvailability enum('Yes','No')
+);
+
+create table orders(
+orderID int primary key,
+paymentType varchar(50),
+cost decimal(10,2),
+customerID int,
+parking_id int,
 inventory_id int,
-foreign key (order_id) references orders(orderID),
+foreign key (customerID) references customer(custID),
+foreign key (parking_id) references parking(parkingID),
 foreign key (inventory_id) references inventory(inventoryID)
 );
