@@ -1,0 +1,14 @@
+create table inventory(
+inventoryID int primary key,
+carType varchar(50),
+carAvailability enum('Yes','No'),
+cost decimal(10,2)
+);
+
+create table parking(
+parkingID int primary key,
+parkingType enum('VIP', 'Regular'),
+parking_time time,
+parkCost decimal(10,2),
+parkingDate date
+);
