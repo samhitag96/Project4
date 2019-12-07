@@ -54,10 +54,6 @@
        
        echo "<form method = \"post\" action=\"./pay_confirm.php\">
 
-
-            Purchasing $parkType parking for: $parkDate
-            <br>
-            Parking Price: $$parkCost
             <br>
             <br>
             <div>

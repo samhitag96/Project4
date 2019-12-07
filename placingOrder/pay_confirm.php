@@ -22,6 +22,7 @@
 
             if(!validPay($card_name, $card_num, $security_code, $exp_month, $exp_year)){
                 echo "Information entered was not acceptable, please re-enter";
+                echo "<a href = \"./pay.php\"></a>";
             }else{
                 
                 //$custName = pullCustName($card_name);
@@ -115,6 +116,10 @@
                 <strong>$card_name</strong>
                 <br>
                 <strong>$parkType parking for $parkDate </strong>
+                <br>
+                <strong>Parking cost: $$parkCost </strong>
+                <br>
+                <strong>Car cost: $$carCost </strong>
                 <br>
                 <strong>Total cost: $$totalCost</strong>
                 ";

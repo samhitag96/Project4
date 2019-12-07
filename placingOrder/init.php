@@ -10,7 +10,7 @@ if(!$con){
 	die("Error in database connection".mysqli_connect_error());
 }
 else{
-	echo "<h3> Database connected i hope</h3>";
+	//echo "<h3> Database connected i hope</h3>";
 	return true;
 }
 

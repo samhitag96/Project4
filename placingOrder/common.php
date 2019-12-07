@@ -63,10 +63,10 @@
     }
     function parkingTypeCost($parkType){
         if($parkType == "VIP"){
-            return 20;
+            return 20.00;
         }
         if($parkType == "Regular"){
-            return 10;
+            return 10.00;
         }
 
 
