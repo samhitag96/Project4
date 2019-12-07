@@ -80,19 +80,20 @@
     }
     
     function pullCustPay($card_num){
-        $lookforMast = "/^[51|552|53|54|55]/";
+        $lookforMast = "/^5[1-5]/";
         $lookforVisa = "/^4/";
-        $lookforAE = "/^[34|37]/";
+        $lookforAE = "/^3[4|7]/";
 
         if(preg_match($lookforMast,$card_num)){
             return "MasterCard";
-        }
+        }else
         if(preg_match($lookforVisa, $card_num)){
             return "Visa";
-        }
-        if(preg_match($lookforAE, $card_name)){
+        }else
+        if(preg_match($lookforAE, $card_num)){
             return "American Express";
-        }
+        }else{
         return "random assortment of numbers";
+        }
     }
 ?>
